@@ -188,14 +188,14 @@ dependencies {
     compile ("org.springframework:spring-context-support") {
         exclude(module: 'quartz')
     }
-    
+
     //ModelExporter Deps
     compile group: 'org.springframework', name: 'spring-oxm', version: '3.0.0.RELEASE'
     compile group: 'org.apache.tomcat', name: 'tomcat-util', version: '8.0.0-RC1'
     compile group: 'org.springframework.security.kerberos', name: 'spring-security-kerberos-client', version: '1.0.1.RELEASE'
     compile group: 'org.springframework.security.kerberos', name: 'spring-security-kerberos-core', version: '1.0.1.RELEASE'
     compile group: 'org.springframework.security.kerberos', name: 'spring-security-kerberos-web', version: '1.0.1.RELEASE'
-    
+
     compile "org.springframework.security:spring-security-config:${spring_security_version}"
     compile "org.springframework.security:spring-security-data:${spring_security_version}"
     compile "org.springframework.security:spring-security-web:${spring_security_version}"
@@ -263,7 +263,7 @@ jaxb2 {
         'request-classes' {
 			generatedSourcesDir = 'src/main/java/uk/gov/ofwat/fountain/modelbuilder/model/generated'
             basePackage = 'uk.gov.ofwat.fountain.modelbuilder.model.generated'
-            schema = 'C:/workspace/Fountain/schemas/newModel.xsd'
+            schema = '/Users/jtoddington/workspace/fountain/workspace/Fountain/schemas/newModel.xsd'
         }
     }
 }

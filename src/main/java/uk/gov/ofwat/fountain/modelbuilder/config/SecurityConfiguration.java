@@ -77,6 +77,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
+    /*
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth
+            .authenticationProvider(activeDirectoryLdapAuthenticationProvider())
+            .authenticationProvider(kerberosServiceAuthenticationProvider());
+    }
+    */
+
     @Inject
     public void configureGlobal(AuthenticationManagerBuilder auth) {
         try {
@@ -84,7 +93,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authenticationProvider(activeDirectoryLdapAuthenticationProvider())
                 .authenticationProvider(kerberosServiceAuthenticationProvider())
                 .userDetailsService(userDetailsService)
-                    .passwordEncoder(passwordEncoder());
+                .passwordEncoder(passwordEncoder());
         } catch (Exception e) {
             throw new BeanInitializationException("Security configuration failed", e);
         }
@@ -213,12 +222,62 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     }
     */
 
+    /*
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-            .csrf()
-            .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
-        .and()
+            .csrf().disable()
+            //.and()
+            //.addFilterAfter(new CsrfCookieGeneratorFilter(), CsrfFilter.class)
+            .exceptionHandling()
+                //.accessDeniedHandler(new CustomAccessDeniedHandler())
+            .authenticationEntryPoint(authenticationEntryPoint)
+            .and()
+            .rememberMe()
+            .rememberMeServices(rememberMeServices)
+            .rememberMeParameter("remember-me")
+            .key(jHipsterProperties.getSecurity().getRememberMe().getKey())
+            .and()
+            .formLogin()
+            .loginProcessingUrl("/api/authentication")
+            .successHandler(ajaxAuthenticationSuccessHandler)
+            .failureHandler(ajaxAuthenticationFailureHandler)
+            .usernameParameter("j_username")
+            .passwordParameter("j_password")
+            .permitAll()
+            .and()
+            .logout()
+            .logoutUrl("/api/logout")
+            .logoutSuccessHandler(ajaxLogoutSuccessHandler)
+            .deleteCookies("JSESSIONID", "CSRF-TOKEN")
+            .permitAll()
+            .and()
+            .headers()
+            .frameOptions()
+            .disable()
+            .and()
+            .authorizeRequests()
+            .antMatchers("/api/register").permitAll()
+            .antMatchers("/api/activate").permitAll()
+            .antMatchers("/api/authenticate").permitAll()
+            .antMatchers("/api/account/reset_password/init").permitAll()
+            .antMatchers("/api/account/reset_password/finish").permitAll()
+            .antMatchers("/api/profile-info").permitAll()
+            .antMatchers("/api/**").authenticated()
+            .antMatchers("/management/**").hasAuthority(AuthoritiesConstants.ADMIN)
+            .antMatchers("/v2/api-docs/**").permitAll()
+            .antMatchers("/swagger-resources/configuration/ui").permitAll()
+            .antMatchers("/swagger-ui/index.html").hasAuthority(AuthoritiesConstants.ADMIN);
+
+    }*/
+
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http
+            .csrf().disable()
+            //.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+        //.and()
             //.addFilterAfter(new CsrfCookieGeneratorFilter(), CsrfFilter.class)
             //.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
             //.and()
@@ -264,6 +323,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .antMatchers("/swagger-ui/index.html").hasAuthority(AuthoritiesConstants.ADMIN);
 
     }
+
 
     @Bean
     public SecurityEvaluationContextExtension securityEvaluationContextExtension() {
