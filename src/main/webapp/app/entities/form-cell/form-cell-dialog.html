@@ -1,0 +1,116 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myFormCellLabel">Create or edit a Form Cell</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.formCell.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.formCell.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_cellCode">Cell Code</label>
+            <input type="text" class="form-control" name="cellCode" id="field_cellCode"
+                    ng-model="vm.formCell.cellCode"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_useConfidenceGrade">Use Confidence Grade</label>
+            <input type="checkbox" class="form-control" name="useConfidenceGrade" id="field_useConfidenceGrade"
+                    ng-model="vm.formCell.useConfidenceGrade"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_inputConfidenceGrade">Input Confidence Grade</label>
+            <input type="checkbox" class="form-control" name="inputConfidenceGrade" id="field_inputConfidenceGrade"
+                    ng-model="vm.formCell.inputConfidenceGrade"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_confidenceGradeInputCode">Confidence Grade Input Code</label>
+            <input type="text" class="form-control" name="confidenceGradeInputCode" id="field_confidenceGradeInputCode"
+                    ng-model="vm.formCell.confidenceGradeInputCode"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_rowHeadingSource">Row Heading Source</label>
+            <input type="checkbox" class="form-control" name="rowHeadingSource" id="field_rowHeadingSource"
+                    ng-model="vm.formCell.rowHeadingSource"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_columnHeadingSource">Column Heading Source</label>
+            <input type="text" class="form-control" name="columnHeadingSource" id="field_columnHeadingSource"
+                    ng-model="vm.formCell.columnHeadingSource"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_groupDescriptionCode">Group Description Code</label>
+            <input type="text" class="form-control" name="groupDescriptionCode" id="field_groupDescriptionCode"
+                    ng-model="vm.formCell.groupDescriptionCode"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_row">Row</label>
+            <input type="text" class="form-control" name="row" id="field_row"
+                    ng-model="vm.formCell.row"
+                    required />
+            <div ng-show="editForm.row.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.row.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_formColumn">Form Column</label>
+            <input type="text" class="form-control" name="formColumn" id="field_formColumn"
+                    ng-model="vm.formCell.formColumn"
+                    required />
+            <div ng-show="editForm.formColumn.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.formColumn.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_rowSpan">Row Span</label>
+            <input type="text" class="form-control" name="rowSpan" id="field_rowSpan"
+                    ng-model="vm.formCell.rowSpan"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_formColumnSpan">Form Column Span</label>
+            <input type="text" class="form-control" name="formColumnSpan" id="field_formColumnSpan"
+                    ng-model="vm.formCell.formColumnSpan"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_width">Width</label>
+            <input type="text" class="form-control" name="width" id="field_width"
+                    ng-model="vm.formCell.width"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label for="field_form">Form</label>
+            <select class="form-control" id="field_form" name="form" ng-model="vm.formCell.form" ng-options="form as form.id for form in vm.forms track by form.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

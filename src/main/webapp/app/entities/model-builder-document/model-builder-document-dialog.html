@@ -1,0 +1,74 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myModelBuilderDocumentLabel">Create or edit a Model Builder Document</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.modelBuilderDocument.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.modelBuilderDocument.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_reporter">Reporter</label>
+            <input type="text" class="form-control" name="reporter" id="field_reporter"
+                    ng-model="vm.modelBuilderDocument.reporter"
+                    required />
+            <div ng-show="editForm.reporter.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.reporter.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_auditor">Auditor</label>
+            <input type="text" class="form-control" name="auditor" id="field_auditor"
+                    ng-model="vm.modelBuilderDocument.auditor"
+                    required />
+            <div ng-show="editForm.auditor.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.auditor.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="field_model">Model</label>
+            <select class="form-control" id="field_model" name="model" ng-model="vm.modelBuilderDocument.model" ng-options="model as model.id for model in vm.models track by model.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="field_page">Page</label>
+            <select class="form-control" id="field_page" name="page" ng-model="vm.modelBuilderDocument.page" ng-options="page as page.id for page in vm.pages track by page.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="field_section">Section</label>
+            <select class="form-control" id="field_section" name="section" ng-model="vm.modelBuilderDocument.section" ng-options="section as section.id for section in vm.sections track by section.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="field_line">Line</label>
+            <select class="form-control" id="field_line" name="line" ng-model="vm.modelBuilderDocument.line" ng-options="line as line.id for line in vm.lines track by line.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

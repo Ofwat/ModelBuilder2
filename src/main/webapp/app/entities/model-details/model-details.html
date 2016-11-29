@@ -1,0 +1,107 @@
+<div>
+    <h2>Model Details</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="model-details.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs" >
+                        Create new Model Details
+                    </span>
+                </button>
+            </div>
+            <div class="col-xs-8 no-padding-right">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group pull-right" >
+                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="Query">
+                        <span  class="input-group-btn width-min" >
+                            <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                        <span class="input-group-btn width-min" ng-if="vm.currentSearch">
+                            <button class="btn btn-info" ng-click="vm.clear()">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span>ID</span></th>
+                    <th><span>Code</span></th>
+                    <th><span>Name</span></th>
+                    <th><span>Version</span></th>
+                    <th><span>Type</span></th>
+                    <th><span>Text Code</span></th>
+                    <th><span>Base Year Code</span></th>
+                    <th><span>Report Year Code</span></th>
+                    <th><span>Allow Data Changes</span></th>
+                    <th><span>Model Family Code</span></th>
+                    <th><span>Model Family Parent</span></th>
+                    <th><span>Display Order</span></th>
+                    <th><span>Branch Tag</span></th>
+                    <th><span>Run Code</span></th>
+                    <th><span>Last Modified</span></th>
+                    <th><span>Created</span></th>
+                    <th><span>Created By</span></th>
+                    <th><span>Last Modified By</span></th>
+                    <th><span>Fountain Model Id</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="modelDetails in vm.modelDetails track by modelDetails.id">
+                    <td><a ui-sref="model-details-detail({id:modelDetails.id})">{{modelDetails.id}}</a></td>
+                    <td>{{modelDetails.code}}</td>
+                    <td>{{modelDetails.name}}</td>
+                    <td>{{modelDetails.version}}</td>
+                    <td>{{modelDetails.type}}</td>
+                    <td>{{modelDetails.textCode}}</td>
+                    <td>{{modelDetails.baseYearCode}}</td>
+                    <td>{{modelDetails.reportYearCode}}</td>
+                    <td>{{modelDetails.allowDataChanges}}</td>
+                    <td>{{modelDetails.modelFamilyCode}}</td>
+                    <td>{{modelDetails.modelFamilyParent}}</td>
+                    <td>{{modelDetails.displayOrder}}</td>
+                    <td>{{modelDetails.branchTag}}</td>
+                    <td>{{modelDetails.runCode}}</td>
+                    <td>{{modelDetails.lastModified | date:'medium'}}</td>
+                    <td>{{modelDetails.created | date:'medium'}}</td>
+                    <td>{{modelDetails.createdBy}}</td>
+                    <td>{{modelDetails.lastModifiedBy}}</td>
+                    <td>{{modelDetails.fountainModelId}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="model-details-detail({id:modelDetails.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="model-details.edit({id:modelDetails.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="model-details.delete({id:modelDetails.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

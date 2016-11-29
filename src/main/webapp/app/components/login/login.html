@@ -29,6 +29,7 @@
                         <input type="checkbox" id="rememberMe" ng-model="vm.rememberMe" checked>
                         <span>Remember me</span>
                     </label>
+                    <input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
                 </div>
                 <button type="submit" class="btn btn-primary">Sign in</button>
             </form>

@@ -1,0 +1,43 @@
+
+<div>
+    <h2><span>Model Builder Document</span> {{vm.modelBuilderDocument.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Reporter</span></dt>
+        <dd>
+            <span>{{vm.modelBuilderDocument.reporter}}</span>
+        </dd>
+        <dt><span>Auditor</span></dt>
+        <dd>
+            <span>{{vm.modelBuilderDocument.auditor}}</span>
+        </dd>
+        <dt><span>Model</span></dt>
+        <dd>
+            <a ui-sref="model-detail({id:vm.modelBuilderDocument.model.id})">{{vm.modelBuilderDocument.model.id}}</a>
+        </dd>
+        <dt><span>Page</span></dt>
+        <dd>
+            <a ui-sref="page-detail({id:vm.modelBuilderDocument.page.id})">{{vm.modelBuilderDocument.page.id}}</a>
+        </dd>
+        <dt><span>Section</span></dt>
+        <dd>
+            <a ui-sref="section-detail({id:vm.modelBuilderDocument.section.id})">{{vm.modelBuilderDocument.section.id}}</a>
+        </dd>
+        <dt><span>Line</span></dt>
+        <dd>
+            <a ui-sref="line-detail({id:vm.modelBuilderDocument.line.id})">{{vm.modelBuilderDocument.line.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="model-builder-document-detail.edit({id:vm.modelBuilderDocument.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

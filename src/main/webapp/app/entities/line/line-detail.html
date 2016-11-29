@@ -1,0 +1,31 @@
+
+<div>
+    <h2><span>Line</span> {{vm.line.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Line Detail</span></dt>
+        <dd>
+            <a ui-sref="line-details-detail({id:vm.line.lineDetail.id})">{{vm.line.lineDetail.id}}</a>
+        </dd>
+        <dt><span>Cell Range</span></dt>
+        <dd>
+            <a ui-sref="cell-range-detail({id:vm.line.cellRange.id})">{{vm.line.cellRange.id}}</a>
+        </dd>
+        <dt><span>Section</span></dt>
+        <dd>
+            <a ui-sref="section-detail({id:vm.line.section.id})">{{vm.line.section.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="line-detail.edit({id:vm.line.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

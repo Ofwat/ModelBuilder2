@@ -1,0 +1,56 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myCompanyPageLabel">Create or edit a Company Page</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.companyPage.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.companyPage.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_companyCode">Company Code</label>
+            <input type="text" class="form-control" name="companyCode" id="field_companyCode"
+                    ng-model="vm.companyPage.companyCode"
+                    required />
+            <div ng-show="editForm.companyCode.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.companyCode.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_pageCode">Page Code</label>
+            <input type="text" class="form-control" name="pageCode" id="field_pageCode"
+                    ng-model="vm.companyPage.pageCode"
+                    required />
+            <div ng-show="editForm.pageCode.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.pageCode.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="field_model">Model</label>
+            <select class="form-control" id="field_model" name="model" ng-model="vm.companyPage.model" ng-options="model as model.id for model in vm.models track by model.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

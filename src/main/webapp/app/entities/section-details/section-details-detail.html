@@ -1,0 +1,71 @@
+
+<div>
+    <h2><span>Section Details</span> {{vm.sectionDetails.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Display</span></dt>
+        <dd>
+            <span>{{vm.sectionDetails.display}}</span>
+        </dd>
+        <dt><span>Code</span></dt>
+        <dd>
+            <span>{{vm.sectionDetails.code}}</span>
+        </dd>
+        <dt><span>Group Type</span></dt>
+        <dd>
+            <span>{{vm.sectionDetails.groupType}}</span>
+        </dd>
+        <dt><span>Use Line Number</span></dt>
+        <dd>
+            <span>{{vm.sectionDetails.useLineNumber}}</span>
+        </dd>
+        <dt><span>Use Item Code</span></dt>
+        <dd>
+            <span>{{vm.sectionDetails.useItemCode}}</span>
+        </dd>
+        <dt><span>Use Item Description</span></dt>
+        <dd>
+            <span>{{vm.sectionDetails.useItemDescription}}</span>
+        </dd>
+        <dt><span>Use Unit</span></dt>
+        <dd>
+            <span>{{vm.sectionDetails.useUnit}}</span>
+        </dd>
+        <dt><span>Use Year Code</span></dt>
+        <dd>
+            <span>{{vm.sectionDetails.useYearCode}}</span>
+        </dd>
+        <dt><span>Use Confidence Grades</span></dt>
+        <dd>
+            <span>{{vm.sectionDetails.useConfidenceGrades}}</span>
+        </dd>
+        <dt><span>Allow Group Selection</span></dt>
+        <dd>
+            <span>{{vm.sectionDetails.allowGroupSelection}}</span>
+        </dd>
+        <dt><span>Allow Data Changes</span></dt>
+        <dd>
+            <span>{{vm.sectionDetails.allowDataChanges}}</span>
+        </dd>
+        <dt><span>Section Type</span></dt>
+        <dd>
+            <span>{{vm.sectionDetails.sectionType}}</span>
+        </dd>
+        <dt><span>Item Code Column</span></dt>
+        <dd>
+            <span>{{vm.sectionDetails.itemCodeColumn}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="section-details-detail.edit({id:vm.sectionDetails.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,98 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myTextBlockLabel">Create or edit a Text Block</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.textBlock.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.textBlock.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                    ng-model="vm.textBlock.description"
+                    required />
+            <div ng-show="editForm.description.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.description.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_versionNumber">Version Number</label>
+            <input type="text" class="form-control" name="versionNumber" id="field_versionNumber"
+                    ng-model="vm.textBlock.versionNumber"
+                    required />
+            <div ng-show="editForm.versionNumber.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.versionNumber.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_textFormatCode">Text Format Code</label>
+            <input type="text" class="form-control" name="textFormatCode" id="field_textFormatCode"
+                    ng-model="vm.textBlock.textFormatCode"
+                    required />
+            <div ng-show="editForm.textFormatCode.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.textFormatCode.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_textTypeCode">Text Type Code</label>
+            <input type="text" class="form-control" name="textTypeCode" id="field_textTypeCode"
+                    ng-model="vm.textBlock.textTypeCode"
+                    required />
+            <div ng-show="editForm.textTypeCode.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.textTypeCode.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_retired">Retired</label>
+            <input type="checkbox" class="form-control" name="retired" id="field_retired"
+                    ng-model="vm.textBlock.retired"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_data">Data</label>
+            <input type="text" class="form-control" name="data" id="field_data"
+                    ng-model="vm.textBlock.data"
+                    required />
+            <div ng-show="editForm.data.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.data.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="field_text">Text</label>
+            <select class="form-control" id="field_text" name="text" ng-model="vm.textBlock.text" ng-options="text as text.id for text in vm.texts track by text.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

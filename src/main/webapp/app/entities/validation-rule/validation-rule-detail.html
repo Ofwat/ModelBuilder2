@@ -1,0 +1,27 @@
+
+<div>
+    <h2><span>Validation Rule</span> {{vm.validationRule.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Validation Rule Detail</span></dt>
+        <dd>
+            <a ui-sref="validation-rule-details-detail({id:vm.validationRule.validationRuleDetail.id})">{{vm.validationRule.validationRuleDetail.id}}</a>
+        </dd>
+        <dt><span>Model</span></dt>
+        <dd>
+            <a ui-sref="model-detail({id:vm.validationRule.model.id})">{{vm.validationRule.model.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="validation-rule-detail.edit({id:vm.validationRule.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

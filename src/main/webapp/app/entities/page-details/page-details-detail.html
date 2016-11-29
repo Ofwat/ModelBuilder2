@@ -1,0 +1,51 @@
+
+<div>
+    <h2><span>Page Details</span> {{vm.pageDetails.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Code</span></dt>
+        <dd>
+            <span>{{vm.pageDetails.code}}</span>
+        </dd>
+        <dt><span>Description</span></dt>
+        <dd>
+            <span>{{vm.pageDetails.description}}</span>
+        </dd>
+        <dt><span>Text</span></dt>
+        <dd>
+            <span>{{vm.pageDetails.text}}</span>
+        </dd>
+        <dt><span>Company Type</span></dt>
+        <dd>
+            <span>{{vm.pageDetails.companyType}}</span>
+        </dd>
+        <dt><span>Heading</span></dt>
+        <dd>
+            <span>{{vm.pageDetails.heading}}</span>
+        </dd>
+        <dt><span>Commercial In Confidence</span></dt>
+        <dd>
+            <span>{{vm.pageDetails.commercialInConfidence}}</span>
+        </dd>
+        <dt><span>Hidden</span></dt>
+        <dd>
+            <span>{{vm.pageDetails.hidden}}</span>
+        </dd>
+        <dt><span>Text Code</span></dt>
+        <dd>
+            <span>{{vm.pageDetails.textCode}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="page-details-detail.edit({id:vm.pageDetails.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

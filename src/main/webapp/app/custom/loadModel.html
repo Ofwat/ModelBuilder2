@@ -1,0 +1,39 @@
+<div>
+    <h2 translate="modelBuilderApp.loadModel.home.title">Load Model</h2>
+    <jh-alert-error></jh-alert-error>
+    <form name="loadModelForm">
+        <fieldset>
+        <div class="row">
+            <div class="form-group col-md-6">
+                <input name="file" type="file" ngf-select ng-model="modelFile" class="btn btn-default btn-block"
+                       accept="text/xml" required>
+                <i ng-show="loadModelForm.file.$error.required">*required</i><br>
+
+            </div>
+            <div class="col-md-6">
+                <!--
+                <div class="thumb" ngf-thumbnail="modelFile" ngf-size="{width: 20, height: 20, quality: 0.9}">
+                </div>
+                -->
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-2">
+                <button ng-disabled="!loadModelForm.$valid" class="btn btn-primary" ng-click="uploadModel(modelFile)">Load Model</button>
+            </div>
+            <div class="col-md-10">
+
+              <span class="progress" ng-show="modelFile.progress >= 0">
+                <div style="width:{{modelFile.progress}}%"
+                     ng-bind="modelFile.progress + '%'"></div>
+              </span>
+              <span ng-show="modelFile.result">Upload Successful</span>
+
+
+              <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
+
+            </div>
+        </div>
+        </fieldset>
+    </form>
+</div>

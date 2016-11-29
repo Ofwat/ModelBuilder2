@@ -1,0 +1,111 @@
+<div>
+    <h2>Form Heading Cells</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="form-heading-cell.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs" >
+                        Create new Form Heading Cell
+                    </span>
+                </button>
+            </div>
+            <div class="col-xs-8 no-padding-right">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group pull-right" >
+                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="Query">
+                        <span  class="input-group-btn width-min" >
+                            <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                        <span class="input-group-btn width-min" ng-if="vm.currentSearch">
+                            <button class="btn btn-info" ng-click="vm.clear()">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span>ID</span></th>
+                    <th><span>Text</span></th>
+                    <th><span>Use Line Number</span></th>
+                    <th><span>Use Item Code</span></th>
+                    <th><span>Use Item Description</span></th>
+                    <th><span>Use Unit</span></th>
+                    <th><span>Use Year Code</span></th>
+                    <th><span>Use Confidence Grades</span></th>
+                    <th><span>Row</span></th>
+                    <th><span>Form Heading Column</span></th>
+                    <th><span>Row Span</span></th>
+                    <th><span>Form Heading Column Span</span></th>
+                    <th><span>Item Code</span></th>
+                    <th><span>Year Code</span></th>
+                    <th><span>Width</span></th>
+                    <th><span>Cell Code</span></th>
+                    <th><span>Group Description Code</span></th>
+                    <th><span>Form Top</span></th>
+                    <th><span>Form Left</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="formHeadingCell in vm.formHeadingCells track by formHeadingCell.id">
+                    <td><a ui-sref="form-heading-cell-detail({id:formHeadingCell.id})">{{formHeadingCell.id}}</a></td>
+                    <td>{{formHeadingCell.text}}</td>
+                    <td>{{formHeadingCell.useLineNumber}}</td>
+                    <td>{{formHeadingCell.useItemCode}}</td>
+                    <td>{{formHeadingCell.useItemDescription}}</td>
+                    <td>{{formHeadingCell.useUnit}}</td>
+                    <td>{{formHeadingCell.useYearCode}}</td>
+                    <td>{{formHeadingCell.useConfidenceGrades}}</td>
+                    <td>{{formHeadingCell.row}}</td>
+                    <td>{{formHeadingCell.formHeadingColumn}}</td>
+                    <td>{{formHeadingCell.rowSpan}}</td>
+                    <td>{{formHeadingCell.formHeadingColumnSpan}}</td>
+                    <td>{{formHeadingCell.itemCode}}</td>
+                    <td>{{formHeadingCell.yearCode}}</td>
+                    <td>{{formHeadingCell.width}}</td>
+                    <td>{{formHeadingCell.cellCode}}</td>
+                    <td>{{formHeadingCell.groupDescriptionCode}}</td>
+                    <td>
+                        <a ui-sref="form-detail({id:formHeadingCell.formTop.id})">{{formHeadingCell.formTop.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="form-detail({id:formHeadingCell.formLeft.id})">{{formHeadingCell.formLeft.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="form-heading-cell-detail({id:formHeadingCell.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="form-heading-cell.edit({id:formHeadingCell.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="form-heading-cell.delete({id:formHeadingCell.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

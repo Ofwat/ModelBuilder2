@@ -1,0 +1,27 @@
+
+<div>
+    <h2><span>Section</span> {{vm.section.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Section Detail</span></dt>
+        <dd>
+            <a ui-sref="section-details-detail({id:vm.section.sectionDetail.id})">{{vm.section.sectionDetail.id}}</a>
+        </dd>
+        <dt><span>Page</span></dt>
+        <dd>
+            <a ui-sref="page-detail({id:vm.section.page.id})">{{vm.section.page.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="section-detail.edit({id:vm.section.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

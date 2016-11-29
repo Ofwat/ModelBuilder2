@@ -1,0 +1,148 @@
+
+<form name="editForm" role="form" novalidate ng-submit="save()" show-validation>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="clear()">&times;</button>
+        <h4 class="modal-title" id="myModelDetailsLabel" translate="modelBuilderApp.modelBuilder.copyModel" translate-values="{modelName: '{{modelDetails.name}}'}">Copy Model</h4>
+    </div>
+    <div class="modal-body">
+        <jh-alert-error></jh-alert-error>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label class="control-label" translate="modelBuilderApp.modelBuilder.name" for="field_name">Name</label>
+                <input type="text" class="form-control" name="name" id="field_name" ng-model="newName" required/>
+                <span class="help-block" ng-show="editForm.name.$error.required" translate="entity.validation.required">This field is required.</span>
+            </div>
+            <div class="form-group col-md-4">
+                <label class="control-label" translate="modelBuilderApp.modelBuilder.code" for="field_code">Code</label>
+                <input type="text" class="form-control" name="code" id="field_code" ng-model="newCode" required />
+                <span class="help-block" ng-show="editForm.code.$error.required" translate="entity.validation.required">This field is required.</span>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+        <!--
+        <div class="form-group">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   ng-model="modelDetails.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="modelBuilderApp.modelDetails.code" for="field_code">Code</label>
+            <input type="text" class="form-control" name="code" id="field_code"
+                   ng-model="modelDetails.code"
+                   required />
+            <div ng-show="editForm.code.$invalid">
+                <p class="help-block"
+                   ng-show="editForm.code.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="modelBuilderApp.modelDetails.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                   ng-model="modelDetails.name"
+                   required />
+            <div ng-show="editForm.name.$invalid">
+                <p class="help-block"
+                   ng-show="editForm.name.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="modelBuilderApp.modelDetails.version" for="field_version">Version</label>
+            <input type="text" class="form-control" name="version" id="field_version"
+                   ng-model="modelDetails.version"
+                   required />
+            <div ng-show="editForm.version.$invalid">
+                <p class="help-block"
+                   ng-show="editForm.version.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="modelBuilderApp.modelDetails.type" for="field_type">Type</label>
+            <input type="text" class="form-control" name="type" id="field_type"
+                   ng-model="modelDetails.type"
+                   required />
+            <div ng-show="editForm.type.$invalid">
+                <p class="help-block"
+                   ng-show="editForm.type.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="modelBuilderApp.modelDetails.textCode" for="field_textCode">TextCode</label>
+            <input type="text" class="form-control" name="textCode" id="field_textCode"
+                   ng-model="modelDetails.textCode"
+                />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="modelBuilderApp.modelDetails.baseYearCode" for="field_baseYearCode">BaseYearCode</label>
+            <input type="text" class="form-control" name="baseYearCode" id="field_baseYearCode"
+                   ng-model="modelDetails.baseYearCode"
+                />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="modelBuilderApp.modelDetails.reportYearCode" for="field_reportYearCode">ReportYearCode</label>
+            <input type="text" class="form-control" name="reportYearCode" id="field_reportYearCode"
+                   ng-model="modelDetails.reportYearCode"
+                />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="modelBuilderApp.modelDetails.allowDataChanges" for="field_allowDataChanges">AllowDataChanges</label>
+            <input type="checkbox" class="form-control" name="allowDataChanges" id="field_allowDataChanges"
+                   ng-model="modelDetails.allowDataChanges"
+                />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="modelBuilderApp.modelDetails.modelFamilyCode" for="field_modelFamilyCode">ModelFamilyCode</label>
+            <input type="text" class="form-control" name="modelFamilyCode" id="field_modelFamilyCode"
+                   ng-model="modelDetails.modelFamilyCode"
+                />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="modelBuilderApp.modelDetails.modelFamilyParent" for="field_modelFamilyParent">ModelFamilyParent</label>
+            <input type="checkbox" class="form-control" name="modelFamilyParent" id="field_modelFamilyParent"
+                   ng-model="modelDetails.modelFamilyParent"
+                />
+            <div ng-show="editForm.modelFamilyParent.$invalid">
+                <p class="help-block"
+                   ng-show="editForm.modelFamilyParent.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="modelBuilderApp.modelDetails.displayOrder" for="field_displayOrder">DisplayOrder</label>
+            <input type="number" class="form-control" name="displayOrder" id="field_displayOrder"
+                   ng-model="modelDetails.displayOrder"
+                />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="modelBuilderApp.modelDetails.branchTag" for="field_branchTag">BranchTag</label>
+            <input type="text" class="form-control" name="branchTag" id="field_branchTag"
+                   ng-model="modelDetails.branchTag"
+                />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="modelBuilderApp.modelDetails.runCode" for="field_runCode">RunCode</label>
+            <input type="text" class="form-control" name="runCode" id="field_runCode"
+                   ng-model="modelDetails.runCode"
+                />
+        </div>
+    -->
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="modelBuilderApp.modelBuilder.copyModel">Copy Model</span>
+        </button>
+    </div>
+
+</form>

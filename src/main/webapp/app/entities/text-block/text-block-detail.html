@@ -1,0 +1,47 @@
+
+<div>
+    <h2><span>Text Block</span> {{vm.textBlock.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Description</span></dt>
+        <dd>
+            <span>{{vm.textBlock.description}}</span>
+        </dd>
+        <dt><span>Version Number</span></dt>
+        <dd>
+            <span>{{vm.textBlock.versionNumber}}</span>
+        </dd>
+        <dt><span>Text Format Code</span></dt>
+        <dd>
+            <span>{{vm.textBlock.textFormatCode}}</span>
+        </dd>
+        <dt><span>Text Type Code</span></dt>
+        <dd>
+            <span>{{vm.textBlock.textTypeCode}}</span>
+        </dd>
+        <dt><span>Retired</span></dt>
+        <dd>
+            <span>{{vm.textBlock.retired}}</span>
+        </dd>
+        <dt><span>Data</span></dt>
+        <dd>
+            <span>{{vm.textBlock.data}}</span>
+        </dd>
+        <dt><span>Text</span></dt>
+        <dd>
+            <a ui-sref="text-detail({id:vm.textBlock.text.id})">{{vm.textBlock.text.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="text-block-detail.edit({id:vm.textBlock.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

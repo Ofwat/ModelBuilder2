@@ -1,0 +1,467 @@
+entity Model {
+}
+
+entity ModelDetails {
+    code String required
+    name String required
+    version String required
+    type String required
+    textCode String
+    baseYearCode String
+    reportYearCode String
+    allowDataChanges Boolean
+    modelFamilyCode String
+    modelFamilyParent Boolean required //default false
+    displayOrder Integer //default 0
+    branchTag String
+    runCode String
+    lastModified ZonedDateTime
+    created ZonedDateTime
+    createdBy String
+    lastModifiedBy String
+    fountainModelId Integer
+}
+
+/** Relationship **/
+//entity Transfers {
+//}
+
+entity Transfer {
+    description String
+}
+
+entity TransferCondition {
+    itemCode String required
+    yearCode String required
+    value String required
+    failureMessage String required
+}
+
+/** Relationship **/
+//entity Transfer-blocks {
+//}
+
+entity TransferBlock {
+}
+
+entity TransferBlockDetails {
+    fromModelCode String
+    fromVersionCode String
+    fromPageCode String
+    toModelCode String
+    toVersionCode String
+    toPageCode String
+    toMacroCode String
+}
+
+/** Relationship **/
+//entity TransferBlockItems {
+//}
+
+entity TransferBlockItem {
+    itemCode String required, //Should this be a relationship? probably not.
+    companyType String
+}
+
+/** Relationship **/
+//entity Audits {
+//}
+
+entity ModelAudit {
+
+}
+
+entity AuditDetails {
+    username String
+    timestamp String
+    reason String
+}
+
+/** Relationship **/
+//entity Changes {
+//}
+
+entity AuditChange { //Change is a keyword in MySql
+    changeText String
+}
+
+/** Relationship **/
+//entity Items {
+//}
+
+entity Item {
+    code String required
+    versionNumber String required
+    pricebaseCode String
+    purposeCode String
+    textCode String
+}
+
+/** Relationship **/
+//entity Years {
+//}
+
+entity Year {
+    base String required
+}
+
+/** Relationship **/
+//entity Inputs {
+//}
+
+entity Input {
+    code String required
+    //model String required
+    tag String
+    version String required
+    company String
+    defaultInput Boolean required
+}
+
+/** Relationship **/
+//entity Headings {
+//}
+
+entity Heading {
+    code String required
+    description String
+    notes String
+    parent String
+    annotation String
+}
+
+/** Relationship **/
+//entity ValidationRules {
+//}
+
+entity ValidationRule {
+
+}
+
+entity ValidationRuleDetails {
+    code String required
+    description String required
+    formula String required
+}
+
+/** Relationship **/
+//entity Validation-rule-items {
+//}
+
+entity ValidationRuleItem {
+    type String required
+    evaluate String
+    value String
+}
+
+/** Relationship **/
+//entity CompanyPages {
+//}
+
+entity CompanyPage {
+    companyCode String required
+    pageCode String required
+}
+
+/** Relationship **/
+//entity Documents {
+//}
+
+entity ModelBuilderDocument {
+    reporter String required
+    auditor String required
+}
+
+/** Relationship **/
+//entity Pages {
+//}
+
+entity Page {
+}
+
+entity PageDetails {
+    code String required
+    description String required
+    text String
+    companyType String
+    heading String
+    commercialInConfidence Boolean
+    hidden Boolean
+    textCode String
+}
+
+/** Relationship **/
+//entity Sections {
+//}
+
+entity Section {
+}
+
+entity SectionDetails {
+    display String required
+    code String required
+    groupType String
+    useLineNumber Boolean required
+    useItemCode Boolean required
+    useItemDescription Boolean required
+    useUnit Boolean required
+    useYearCode Boolean required
+    useConfidenceGrades Boolean required
+    allowGroupSelection Boolean
+    allowDataChanges Boolean
+    sectionType String
+    itemCodeColumn Integer
+}
+
+/** Relationship **/
+//entity Lines {
+//}
+
+entity Line {
+}
+
+entity LineDetails {
+    heading Boolean
+    code String
+    description String
+    equation String
+    lineNumber String
+    ruleText String
+    type String
+    companyType String
+    useConfidenceGrade Boolean
+    validationRuleCode String
+    textCode String
+    unit String
+    decimalPlaces Integer
+}
+
+entity CellRange {
+    startYear String required
+    endYear String required
+}
+
+/** Relationship **/
+//entity Cells {
+//}
+
+entity Cell {
+    code String
+    year String required
+    equation String
+    type String required
+    cgType String
+}
+
+/** Relationship **/
+//entity Forms {
+//}
+
+entity Form {
+}
+
+entity FormDetails {
+    companyType String
+}
+
+/** Relationship **/
+//entity FormHeadingsTop {
+//}
+
+/** Relationship **/
+//entity FormHeadingsLeft {
+//}
+
+entity FormHeadingCell {
+    text String
+    useLineNumber Boolean
+    useItemCode Boolean
+    useItemDescription Boolean
+    useUnit Boolean
+    useYearCode Boolean
+    useConfidenceGrades Boolean
+    row String required
+    formHeadingColumn String required
+    rowSpan String
+    formHeadingColumnSpan String
+    itemCode String
+    yearCode String
+    width String
+    cellCode String
+    groupDescriptionCode String
+}
+
+/** Relationship **/
+//entity FormCells {
+//}
+
+entity FormCell {
+    cellCode String
+    useConfidenceGrade Boolean
+    inputConfidenceGrade Boolean
+    confidenceGradeInputCode String
+    rowHeadingSource Boolean
+    columnHeadingSource String
+    groupDescriptionCode String
+    row String required
+    formColumn String required
+    rowSpan String
+    formColumnSpan String
+    width String
+}
+
+/** Relationship **/
+//entity Macros {
+//}
+
+entity Macro {
+    name String required
+    description String required
+    block String required
+    conditionalItemCode String
+    pageCode String
+}
+
+/** Relationship **/
+//entity Texts {
+//}
+
+entity Text {
+    code String required
+}
+
+/** Relationship **/
+//entity TextBlocks {
+//}
+
+entity TextBlock {
+    description String required
+    versionNumber String required
+    textFormatCode String required
+    textTypeCode String required
+    retired Boolean
+    data String required
+}
+
+entity YearCode{
+    yearCode String required
+}
+
+relationship OneToMany {
+  Model{modelAudits} to ModelAudit{model}
+}
+relationship OneToMany {
+  Model{items} to Item{model}
+}
+relationship OneToMany {
+  Model{years} to Year{model}
+}
+relationship OneToMany {
+  Model{inputs} to Input{model}
+}
+relationship OneToMany {
+  Model{headings} to Heading{model}
+}
+relationship OneToMany {
+  Model{validationRules} to ValidationRule{model}
+}
+relationship OneToMany {
+  Model{companyPages} to CompanyPage{model}
+}
+relationship OneToMany {
+  Model{documents} to ModelBuilderDocument{model}
+}
+relationship OneToMany {
+  Model{pages} to Page{model}
+}
+relationship OneToMany {
+  Model{transfers} to Transfer{model}
+}
+relationship OneToMany {
+  Model{macros} to Macro{model}
+}
+relationship OneToMany {
+  Model{texts} to Text{model}
+}
+relationship OneToMany {
+  Transfer{transferBlocks} to TransferBlock{transfer}
+}
+relationship OneToMany {
+  TransferBlock{transferBlockItems} to TransferBlockItem{transferBLock}
+}
+relationship OneToMany {
+  TransferBlockItem{yearCodes} to YearCode{transferBlockItem}
+}
+relationship OneToMany {
+  ModelAudit{changes} to AuditChange{modelAudit}
+}
+relationship OneToMany {
+  ValidationRule{validationRuleItems} to ValidationRuleItem{validationRule}
+}
+relationship OneToMany {
+  Page{sections} to Section{page}
+}
+relationship OneToMany {
+  Page{documents} to ModelBuilderDocument{page}
+}
+relationship OneToMany {
+  Section{documents} to ModelBuilderDocument{section}
+}
+relationship OneToMany {
+  Section{lines} to Line{section}
+}
+relationship OneToMany {
+  Section{forms} to Form{section}
+}
+relationship OneToMany {
+  Line{cells} to Cell{line}
+}
+relationship OneToMany {
+  Line{documents} to ModelBuilderDocument{line}
+}
+
+relationship OneToMany {
+  Form{formCells} to FormCell{form}
+}
+relationship OneToMany {
+  Form{formHeadingsTop} to FormHeadingCell{formTop} //bodge to suit bidirectional relationship
+}
+relationship OneToMany {
+  Form{formHeadingsLeft} to FormHeadingCell{formLeft} //bodge to suit bidirectional relationship
+}
+relationship OneToMany {
+  Text{textBlocks} to TextBlock{text}
+}
+
+
+
+relationship OneToOne {
+  Model{modelDetails} to ModelDetails
+}
+relationship OneToOne {
+  Transfer{transferCondition} to TransferCondition
+}
+relationship OneToOne {
+  TransferBlock{transferBlockDetails} to TransferBlockDetails
+}
+relationship OneToOne {
+  ModelAudit{modelAuditDetail} to AuditDetails
+}
+relationship OneToOne {
+  ValidationRule{validationRuleDetail} to ValidationRuleDetails
+}
+relationship OneToOne {
+  Page{pageDetail} to PageDetails
+}
+relationship OneToOne {
+   Section{sectionDetail} to SectionDetails
+}
+relationship OneToOne {
+   Line{lineDetail} to LineDetails
+}
+relationship OneToOne {
+   Line{cellRange} to CellRange
+}
+relationship OneToOne {
+   Form{formDetail} to FormDetails
+}

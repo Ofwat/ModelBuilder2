@@ -37,5 +37,257 @@
            timeToLiveSeconds="3600">
     </cache>
     
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.Model"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.Model.modelAudits"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.Model.items"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.Model.years"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.Model.inputs"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.Model.headings"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.Model.validationRules"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.Model.companyPages"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.Model.documents"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.Model.pages"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.Model.transfers"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.Model.macros"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.Model.texts"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.ModelDetails"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.Transfer"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.Transfer.transferBlocks"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.TransferCondition"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.TransferBlock"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.TransferBlock.transferBlockItems"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.TransferBlockDetails"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.TransferBlockItem"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.TransferBlockItem.yearCodes"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.ModelAudit"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.ModelAudit.changes"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.AuditDetails"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.AuditChange"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.Item"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.Year"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.Input"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.Heading"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.ValidationRule"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.ValidationRule.validationRuleItems"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.ValidationRuleDetails"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.ValidationRuleItem"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.CompanyPage"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.ModelBuilderDocument"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.Page"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.Page.sections"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.Page.documents"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.PageDetails"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.Section"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.Section.documents"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.Section.lines"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.Section.forms"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.SectionDetails"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.Line"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.Line.cells"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.Line.documents"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.LineDetails"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.CellRange"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.Cell"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.Form"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.Form.formCells"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.Form.formHeadingsTops"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.Form.formHeadingsLefts"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.FormDetails"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.FormHeadingCell"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.FormCell"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.Macro"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.Text"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.Text.textBlocks"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.TextBlock"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="uk.gov.ofwat.fountain.modelbuilder.domain.YearCode"
+        timeToLiveSeconds="3600">
+    </cache>
+
     <!-- jhipster-needle-ehcache-add-entry -->
 </ehcache>

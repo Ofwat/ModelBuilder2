@@ -1,0 +1,27 @@
+
+<div>
+    <h2><span>Year Code</span> {{vm.yearCode.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Year Code</span></dt>
+        <dd>
+            <span>{{vm.yearCode.yearCode}}</span>
+        </dd>
+        <dt><span>Transfer Block Item</span></dt>
+        <dd>
+            <a ui-sref="transfer-block-item-detail({id:vm.yearCode.transferBlockItem.id})">{{vm.yearCode.transferBlockItem.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="year-code-detail.edit({id:vm.yearCode.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

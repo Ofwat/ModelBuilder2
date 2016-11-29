@@ -1,0 +1,31 @@
+
+<div>
+    <h2><span>Transfer</span> {{vm.transfer.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Description</span></dt>
+        <dd>
+            <span>{{vm.transfer.description}}</span>
+        </dd>
+        <dt><span>Transfer Condition</span></dt>
+        <dd>
+            <a ui-sref="transfer-condition-detail({id:vm.transfer.transferCondition.id})">{{vm.transfer.transferCondition.id}}</a>
+        </dd>
+        <dt><span>Model</span></dt>
+        <dd>
+            <a ui-sref="model-detail({id:vm.transfer.model.id})">{{vm.transfer.model.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="transfer-detail.edit({id:vm.transfer.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

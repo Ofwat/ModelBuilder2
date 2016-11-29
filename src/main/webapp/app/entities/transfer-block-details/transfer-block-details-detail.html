@@ -1,0 +1,47 @@
+
+<div>
+    <h2><span>Transfer Block Details</span> {{vm.transferBlockDetails.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>From Model Code</span></dt>
+        <dd>
+            <span>{{vm.transferBlockDetails.fromModelCode}}</span>
+        </dd>
+        <dt><span>From Version Code</span></dt>
+        <dd>
+            <span>{{vm.transferBlockDetails.fromVersionCode}}</span>
+        </dd>
+        <dt><span>From Page Code</span></dt>
+        <dd>
+            <span>{{vm.transferBlockDetails.fromPageCode}}</span>
+        </dd>
+        <dt><span>To Model Code</span></dt>
+        <dd>
+            <span>{{vm.transferBlockDetails.toModelCode}}</span>
+        </dd>
+        <dt><span>To Version Code</span></dt>
+        <dd>
+            <span>{{vm.transferBlockDetails.toVersionCode}}</span>
+        </dd>
+        <dt><span>To Page Code</span></dt>
+        <dd>
+            <span>{{vm.transferBlockDetails.toPageCode}}</span>
+        </dd>
+        <dt><span>To Macro Code</span></dt>
+        <dd>
+            <span>{{vm.transferBlockDetails.toMacroCode}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="transfer-block-details-detail.edit({id:vm.transferBlockDetails.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

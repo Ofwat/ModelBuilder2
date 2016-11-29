@@ -1,0 +1,97 @@
+<div>
+    <h2>Section Details</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="section-details.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs" >
+                        Create new Section Details
+                    </span>
+                </button>
+            </div>
+            <div class="col-xs-8 no-padding-right">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group pull-right" >
+                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="Query">
+                        <span  class="input-group-btn width-min" >
+                            <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                        <span class="input-group-btn width-min" ng-if="vm.currentSearch">
+                            <button class="btn btn-info" ng-click="vm.clear()">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span>ID</span></th>
+                    <th><span>Display</span></th>
+                    <th><span>Code</span></th>
+                    <th><span>Group Type</span></th>
+                    <th><span>Use Line Number</span></th>
+                    <th><span>Use Item Code</span></th>
+                    <th><span>Use Item Description</span></th>
+                    <th><span>Use Unit</span></th>
+                    <th><span>Use Year Code</span></th>
+                    <th><span>Use Confidence Grades</span></th>
+                    <th><span>Allow Group Selection</span></th>
+                    <th><span>Allow Data Changes</span></th>
+                    <th><span>Section Type</span></th>
+                    <th><span>Item Code Column</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="sectionDetails in vm.sectionDetails track by sectionDetails.id">
+                    <td><a ui-sref="section-details-detail({id:sectionDetails.id})">{{sectionDetails.id}}</a></td>
+                    <td>{{sectionDetails.display}}</td>
+                    <td>{{sectionDetails.code}}</td>
+                    <td>{{sectionDetails.groupType}}</td>
+                    <td>{{sectionDetails.useLineNumber}}</td>
+                    <td>{{sectionDetails.useItemCode}}</td>
+                    <td>{{sectionDetails.useItemDescription}}</td>
+                    <td>{{sectionDetails.useUnit}}</td>
+                    <td>{{sectionDetails.useYearCode}}</td>
+                    <td>{{sectionDetails.useConfidenceGrades}}</td>
+                    <td>{{sectionDetails.allowGroupSelection}}</td>
+                    <td>{{sectionDetails.allowDataChanges}}</td>
+                    <td>{{sectionDetails.sectionType}}</td>
+                    <td>{{sectionDetails.itemCodeColumn}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="section-details-detail({id:sectionDetails.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="section-details.edit({id:sectionDetails.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="section-details.delete({id:sectionDetails.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

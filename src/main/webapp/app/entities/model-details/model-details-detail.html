@@ -1,0 +1,91 @@
+
+<div>
+    <h2><span>Model Details</span> {{vm.modelDetails.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Code</span></dt>
+        <dd>
+            <span>{{vm.modelDetails.code}}</span>
+        </dd>
+        <dt><span>Name</span></dt>
+        <dd>
+            <span>{{vm.modelDetails.name}}</span>
+        </dd>
+        <dt><span>Version</span></dt>
+        <dd>
+            <span>{{vm.modelDetails.version}}</span>
+        </dd>
+        <dt><span>Type</span></dt>
+        <dd>
+            <span>{{vm.modelDetails.type}}</span>
+        </dd>
+        <dt><span>Text Code</span></dt>
+        <dd>
+            <span>{{vm.modelDetails.textCode}}</span>
+        </dd>
+        <dt><span>Base Year Code</span></dt>
+        <dd>
+            <span>{{vm.modelDetails.baseYearCode}}</span>
+        </dd>
+        <dt><span>Report Year Code</span></dt>
+        <dd>
+            <span>{{vm.modelDetails.reportYearCode}}</span>
+        </dd>
+        <dt><span>Allow Data Changes</span></dt>
+        <dd>
+            <span>{{vm.modelDetails.allowDataChanges}}</span>
+        </dd>
+        <dt><span>Model Family Code</span></dt>
+        <dd>
+            <span>{{vm.modelDetails.modelFamilyCode}}</span>
+        </dd>
+        <dt><span>Model Family Parent</span></dt>
+        <dd>
+            <span>{{vm.modelDetails.modelFamilyParent}}</span>
+        </dd>
+        <dt><span>Display Order</span></dt>
+        <dd>
+            <span>{{vm.modelDetails.displayOrder}}</span>
+        </dd>
+        <dt><span>Branch Tag</span></dt>
+        <dd>
+            <span>{{vm.modelDetails.branchTag}}</span>
+        </dd>
+        <dt><span>Run Code</span></dt>
+        <dd>
+            <span>{{vm.modelDetails.runCode}}</span>
+        </dd>
+        <dt><span>Last Modified</span></dt>
+        <dd>
+            <span>{{vm.modelDetails.lastModified | date:'medium'}}</span>
+        </dd>
+        <dt><span>Created</span></dt>
+        <dd>
+            <span>{{vm.modelDetails.created | date:'medium'}}</span>
+        </dd>
+        <dt><span>Created By</span></dt>
+        <dd>
+            <span>{{vm.modelDetails.createdBy}}</span>
+        </dd>
+        <dt><span>Last Modified By</span></dt>
+        <dd>
+            <span>{{vm.modelDetails.lastModifiedBy}}</span>
+        </dd>
+        <dt><span>Fountain Model Id</span></dt>
+        <dd>
+            <span>{{vm.modelDetails.fountainModelId}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="model-details-detail.edit({id:vm.modelDetails.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

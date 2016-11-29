@@ -1,0 +1,43 @@
+
+<div>
+    <h2><span>Input</span> {{vm.input.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Code</span></dt>
+        <dd>
+            <span>{{vm.input.code}}</span>
+        </dd>
+        <dt><span>Tag</span></dt>
+        <dd>
+            <span>{{vm.input.tag}}</span>
+        </dd>
+        <dt><span>Version</span></dt>
+        <dd>
+            <span>{{vm.input.version}}</span>
+        </dd>
+        <dt><span>Company</span></dt>
+        <dd>
+            <span>{{vm.input.company}}</span>
+        </dd>
+        <dt><span>Default Input</span></dt>
+        <dd>
+            <span>{{vm.input.defaultInput}}</span>
+        </dd>
+        <dt><span>Model</span></dt>
+        <dd>
+            <a ui-sref="model-detail({id:vm.input.model.id})">{{vm.input.model.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="input-detail.edit({id:vm.input.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

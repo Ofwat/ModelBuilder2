@@ -1,0 +1,91 @@
+<div>
+    <h2>Model Builder Documents</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="model-builder-document.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs" >
+                        Create new Model Builder Document
+                    </span>
+                </button>
+            </div>
+            <div class="col-xs-8 no-padding-right">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group pull-right" >
+                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="Query">
+                        <span  class="input-group-btn width-min" >
+                            <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                        <span class="input-group-btn width-min" ng-if="vm.currentSearch">
+                            <button class="btn btn-info" ng-click="vm.clear()">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span>ID</span></th>
+                    <th><span>Reporter</span></th>
+                    <th><span>Auditor</span></th>
+                    <th><span>Model</span></th>
+                    <th><span>Page</span></th>
+                    <th><span>Section</span></th>
+                    <th><span>Line</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="modelBuilderDocument in vm.modelBuilderDocuments track by modelBuilderDocument.id">
+                    <td><a ui-sref="model-builder-document-detail({id:modelBuilderDocument.id})">{{modelBuilderDocument.id}}</a></td>
+                    <td>{{modelBuilderDocument.reporter}}</td>
+                    <td>{{modelBuilderDocument.auditor}}</td>
+                    <td>
+                        <a ui-sref="model-detail({id:modelBuilderDocument.model.id})">{{modelBuilderDocument.model.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="page-detail({id:modelBuilderDocument.page.id})">{{modelBuilderDocument.page.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="section-detail({id:modelBuilderDocument.section.id})">{{modelBuilderDocument.section.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="line-detail({id:modelBuilderDocument.line.id})">{{modelBuilderDocument.line.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="model-builder-document-detail({id:modelBuilderDocument.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="model-builder-document.edit({id:modelBuilderDocument.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="model-builder-document.delete({id:modelBuilderDocument.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

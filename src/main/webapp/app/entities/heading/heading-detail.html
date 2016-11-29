@@ -1,0 +1,43 @@
+
+<div>
+    <h2><span>Heading</span> {{vm.heading.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Code</span></dt>
+        <dd>
+            <span>{{vm.heading.code}}</span>
+        </dd>
+        <dt><span>Description</span></dt>
+        <dd>
+            <span>{{vm.heading.description}}</span>
+        </dd>
+        <dt><span>Notes</span></dt>
+        <dd>
+            <span>{{vm.heading.notes}}</span>
+        </dd>
+        <dt><span>Parent</span></dt>
+        <dd>
+            <span>{{vm.heading.parent}}</span>
+        </dd>
+        <dt><span>Annotation</span></dt>
+        <dd>
+            <span>{{vm.heading.annotation}}</span>
+        </dd>
+        <dt><span>Model</span></dt>
+        <dd>
+            <a ui-sref="model-detail({id:vm.heading.model.id})">{{vm.heading.model.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="heading-detail.edit({id:vm.heading.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

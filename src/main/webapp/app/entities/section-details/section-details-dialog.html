@@ -1,0 +1,152 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="mySectionDetailsLabel">Create or edit a Section Details</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.sectionDetails.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.sectionDetails.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_display">Display</label>
+            <input type="text" class="form-control" name="display" id="field_display"
+                    ng-model="vm.sectionDetails.display"
+                    required />
+            <div ng-show="editForm.display.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.display.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_code">Code</label>
+            <input type="text" class="form-control" name="code" id="field_code"
+                    ng-model="vm.sectionDetails.code"
+                    required />
+            <div ng-show="editForm.code.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.code.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_groupType">Group Type</label>
+            <input type="text" class="form-control" name="groupType" id="field_groupType"
+                    ng-model="vm.sectionDetails.groupType"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_useLineNumber">Use Line Number</label>
+            <input type="checkbox" class="form-control" name="useLineNumber" id="field_useLineNumber"
+                    ng-model="vm.sectionDetails.useLineNumber"
+                     />
+            <div ng-show="editForm.useLineNumber.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.useLineNumber.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_useItemCode">Use Item Code</label>
+            <input type="checkbox" class="form-control" name="useItemCode" id="field_useItemCode"
+                    ng-model="vm.sectionDetails.useItemCode"
+                     />
+            <div ng-show="editForm.useItemCode.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.useItemCode.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_useItemDescription">Use Item Description</label>
+            <input type="checkbox" class="form-control" name="useItemDescription" id="field_useItemDescription"
+                    ng-model="vm.sectionDetails.useItemDescription"
+                     />
+            <div ng-show="editForm.useItemDescription.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.useItemDescription.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_useUnit">Use Unit</label>
+            <input type="checkbox" class="form-control" name="useUnit" id="field_useUnit"
+                    ng-model="vm.sectionDetails.useUnit"
+                     />
+            <div ng-show="editForm.useUnit.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.useUnit.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_useYearCode">Use Year Code</label>
+            <input type="checkbox" class="form-control" name="useYearCode" id="field_useYearCode"
+                    ng-model="vm.sectionDetails.useYearCode"
+                     />
+            <div ng-show="editForm.useYearCode.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.useYearCode.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_useConfidenceGrades">Use Confidence Grades</label>
+            <input type="checkbox" class="form-control" name="useConfidenceGrades" id="field_useConfidenceGrades"
+                    ng-model="vm.sectionDetails.useConfidenceGrades"
+                     />
+            <div ng-show="editForm.useConfidenceGrades.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.useConfidenceGrades.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_allowGroupSelection">Allow Group Selection</label>
+            <input type="checkbox" class="form-control" name="allowGroupSelection" id="field_allowGroupSelection"
+                    ng-model="vm.sectionDetails.allowGroupSelection"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_allowDataChanges">Allow Data Changes</label>
+            <input type="checkbox" class="form-control" name="allowDataChanges" id="field_allowDataChanges"
+                    ng-model="vm.sectionDetails.allowDataChanges"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_sectionType">Section Type</label>
+            <input type="text" class="form-control" name="sectionType" id="field_sectionType"
+                    ng-model="vm.sectionDetails.sectionType"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_itemCodeColumn">Item Code Column</label>
+            <input type="number" class="form-control" name="itemCodeColumn" id="field_itemCodeColumn"
+                    ng-model="vm.sectionDetails.itemCodeColumn"
+                     />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,71 @@
+
+<div>
+    <h2><span>Line Details</span> {{vm.lineDetails.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Heading</span></dt>
+        <dd>
+            <span>{{vm.lineDetails.heading}}</span>
+        </dd>
+        <dt><span>Code</span></dt>
+        <dd>
+            <span>{{vm.lineDetails.code}}</span>
+        </dd>
+        <dt><span>Description</span></dt>
+        <dd>
+            <span>{{vm.lineDetails.description}}</span>
+        </dd>
+        <dt><span>Equation</span></dt>
+        <dd>
+            <span>{{vm.lineDetails.equation}}</span>
+        </dd>
+        <dt><span>Line Number</span></dt>
+        <dd>
+            <span>{{vm.lineDetails.lineNumber}}</span>
+        </dd>
+        <dt><span>Rule Text</span></dt>
+        <dd>
+            <span>{{vm.lineDetails.ruleText}}</span>
+        </dd>
+        <dt><span>Type</span></dt>
+        <dd>
+            <span>{{vm.lineDetails.type}}</span>
+        </dd>
+        <dt><span>Company Type</span></dt>
+        <dd>
+            <span>{{vm.lineDetails.companyType}}</span>
+        </dd>
+        <dt><span>Use Confidence Grade</span></dt>
+        <dd>
+            <span>{{vm.lineDetails.useConfidenceGrade}}</span>
+        </dd>
+        <dt><span>Validation Rule Code</span></dt>
+        <dd>
+            <span>{{vm.lineDetails.validationRuleCode}}</span>
+        </dd>
+        <dt><span>Text Code</span></dt>
+        <dd>
+            <span>{{vm.lineDetails.textCode}}</span>
+        </dd>
+        <dt><span>Unit</span></dt>
+        <dd>
+            <span>{{vm.lineDetails.unit}}</span>
+        </dd>
+        <dt><span>Decimal Places</span></dt>
+        <dd>
+            <span>{{vm.lineDetails.decimalPlaces}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="line-details-detail.edit({id:vm.lineDetails.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

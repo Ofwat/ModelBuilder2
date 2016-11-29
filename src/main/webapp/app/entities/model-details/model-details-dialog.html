@@ -1,0 +1,172 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myModelDetailsLabel">Create or edit a Model Details</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.modelDetails.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.modelDetails.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_code">Code</label>
+            <input type="text" class="form-control" name="code" id="field_code"
+                    ng-model="vm.modelDetails.code"
+                    required />
+            <div ng-show="editForm.code.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.code.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                    ng-model="vm.modelDetails.name"
+                    required />
+            <div ng-show="editForm.name.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.name.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_version">Version</label>
+            <input type="text" class="form-control" name="version" id="field_version"
+                    ng-model="vm.modelDetails.version"
+                    required />
+            <div ng-show="editForm.version.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.version.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_type">Type</label>
+            <input type="text" class="form-control" name="type" id="field_type"
+                    ng-model="vm.modelDetails.type"
+                    required />
+            <div ng-show="editForm.type.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.type.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_textCode">Text Code</label>
+            <input type="text" class="form-control" name="textCode" id="field_textCode"
+                    ng-model="vm.modelDetails.textCode"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_baseYearCode">Base Year Code</label>
+            <input type="text" class="form-control" name="baseYearCode" id="field_baseYearCode"
+                    ng-model="vm.modelDetails.baseYearCode"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_reportYearCode">Report Year Code</label>
+            <input type="text" class="form-control" name="reportYearCode" id="field_reportYearCode"
+                    ng-model="vm.modelDetails.reportYearCode"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_allowDataChanges">Allow Data Changes</label>
+            <input type="checkbox" class="form-control" name="allowDataChanges" id="field_allowDataChanges"
+                    ng-model="vm.modelDetails.allowDataChanges"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_modelFamilyCode">Model Family Code</label>
+            <input type="text" class="form-control" name="modelFamilyCode" id="field_modelFamilyCode"
+                    ng-model="vm.modelDetails.modelFamilyCode"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_modelFamilyParent">Model Family Parent</label>
+            <input type="checkbox" class="form-control" name="modelFamilyParent" id="field_modelFamilyParent"
+                    ng-model="vm.modelDetails.modelFamilyParent"
+                     />
+            <div ng-show="editForm.modelFamilyParent.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.modelFamilyParent.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_displayOrder">Display Order</label>
+            <input type="number" class="form-control" name="displayOrder" id="field_displayOrder"
+                    ng-model="vm.modelDetails.displayOrder"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_branchTag">Branch Tag</label>
+            <input type="text" class="form-control" name="branchTag" id="field_branchTag"
+                    ng-model="vm.modelDetails.branchTag"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_runCode">Run Code</label>
+            <input type="text" class="form-control" name="runCode" id="field_runCode"
+                    ng-model="vm.modelDetails.runCode"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_lastModified">Last Modified</label>
+                <div class="input-group">
+                    <input id="field_lastModified" type="text" class="form-control" name="lastModified" datetime-picker="{{dateformat}}" ng-model="vm.modelDetails.lastModified" is-open="vm.datePickerOpenStatus.lastModified"
+                      />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('lastModified')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_created">Created</label>
+                <div class="input-group">
+                    <input id="field_created" type="text" class="form-control" name="created" datetime-picker="{{dateformat}}" ng-model="vm.modelDetails.created" is-open="vm.datePickerOpenStatus.created"
+                      />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('created')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_createdBy">Created By</label>
+            <input type="text" class="form-control" name="createdBy" id="field_createdBy"
+                    ng-model="vm.modelDetails.createdBy"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_lastModifiedBy">Last Modified By</label>
+            <input type="text" class="form-control" name="lastModifiedBy" id="field_lastModifiedBy"
+                    ng-model="vm.modelDetails.lastModifiedBy"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_fountainModelId">Fountain Model Id</label>
+            <input type="number" class="form-control" name="fountainModelId" id="field_fountainModelId"
+                    ng-model="vm.modelDetails.fountainModelId"
+                     />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

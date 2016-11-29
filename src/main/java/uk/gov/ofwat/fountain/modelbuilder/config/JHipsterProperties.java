@@ -32,6 +32,8 @@ public class JHipsterProperties {
 
     private final Ribbon ribbon = new Ribbon();
 
+    private final KerberosConfig kerberosConfig = new KerberosConfig();
+
     public Async getAsync() {
         return async;
     }
@@ -51,6 +53,8 @@ public class JHipsterProperties {
     public Security getSecurity() {
         return security;
     }
+
+    public KerberosConfig getKerberosConfig(){ return kerberosConfig; };
 
     public Swagger getSwagger() {
         return swagger;
@@ -178,6 +182,46 @@ public class JHipsterProperties {
                 this.key = key;
             }
         }
+    }
+
+    public static class KerberosConfig {
+        
+        private String adDomain = "OFWAT.NET";
+
+        private String adServer = "ldap://DC201.ofwat.net:389/";
+
+        private String servicePrincipal = "HTTP/stakeholder.ofwat.net@OFWAT.NET";
+
+        private String keytabLocation = "/tmp/http-stakeholder.keytab";
+
+        private String ldapSearchBase = "dc=ofwat,dc=net";
+
+        private String ldapSearchFilter = "(sAMAccountName={0})";
+
+        public String getAdDomain() {
+            return adDomain;
+        }
+
+        public String getAdServer() {
+            return adServer;
+        }
+
+        public String getServicePrincipal() {
+            return servicePrincipal;
+        }
+
+        public String getKeytabLocation() {
+            return keytabLocation;
+        }
+
+        public String getLdapSearchBase() {
+            return ldapSearchBase;
+        }
+
+        public String getLdapSearchFilter() {
+            return ldapSearchFilter;
+        }
+
     }
 
     public static class Swagger {

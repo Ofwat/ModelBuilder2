@@ -1,0 +1,68 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myTransferBlockDetailsLabel">Create or edit a Transfer Block Details</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.transferBlockDetails.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.transferBlockDetails.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_fromModelCode">From Model Code</label>
+            <input type="text" class="form-control" name="fromModelCode" id="field_fromModelCode"
+                    ng-model="vm.transferBlockDetails.fromModelCode"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_fromVersionCode">From Version Code</label>
+            <input type="text" class="form-control" name="fromVersionCode" id="field_fromVersionCode"
+                    ng-model="vm.transferBlockDetails.fromVersionCode"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_fromPageCode">From Page Code</label>
+            <input type="text" class="form-control" name="fromPageCode" id="field_fromPageCode"
+                    ng-model="vm.transferBlockDetails.fromPageCode"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_toModelCode">To Model Code</label>
+            <input type="text" class="form-control" name="toModelCode" id="field_toModelCode"
+                    ng-model="vm.transferBlockDetails.toModelCode"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_toVersionCode">To Version Code</label>
+            <input type="text" class="form-control" name="toVersionCode" id="field_toVersionCode"
+                    ng-model="vm.transferBlockDetails.toVersionCode"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_toPageCode">To Page Code</label>
+            <input type="text" class="form-control" name="toPageCode" id="field_toPageCode"
+                    ng-model="vm.transferBlockDetails.toPageCode"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_toMacroCode">To Macro Code</label>
+            <input type="text" class="form-control" name="toMacroCode" id="field_toMacroCode"
+                    ng-model="vm.transferBlockDetails.toMacroCode"
+                     />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

@@ -91,3 +91,21 @@ jhipster:
             host: localhost
             port: 5000
             queueSize: 512
+
+# ===================================================================
+# Model Builder properties
+# ===================================================================
+
+modelBuilder:
+    modelFileNameFactory:
+        path: Please set this
+        ext: mdl.xml
+    fountainRestService:
+        url: Please set this
+        user: Please set this
+        password: Please set this
+
+
+multipart:
+    maxFileSize: -1
+    maxRequestSize: -1

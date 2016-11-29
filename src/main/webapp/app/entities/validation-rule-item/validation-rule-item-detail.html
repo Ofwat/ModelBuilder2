@@ -1,0 +1,35 @@
+
+<div>
+    <h2><span>Validation Rule Item</span> {{vm.validationRuleItem.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Type</span></dt>
+        <dd>
+            <span>{{vm.validationRuleItem.type}}</span>
+        </dd>
+        <dt><span>Evaluate</span></dt>
+        <dd>
+            <span>{{vm.validationRuleItem.evaluate}}</span>
+        </dd>
+        <dt><span>Value</span></dt>
+        <dd>
+            <span>{{vm.validationRuleItem.value}}</span>
+        </dd>
+        <dt><span>Validation Rule</span></dt>
+        <dd>
+            <a ui-sref="validation-rule-detail({id:vm.validationRuleItem.validationRule.id})">{{vm.validationRuleItem.validationRule.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="validation-rule-item-detail.edit({id:vm.validationRuleItem.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

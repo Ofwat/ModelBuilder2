@@ -1,0 +1,146 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myFormHeadingCellLabel">Create or edit a Form Heading Cell</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.formHeadingCell.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.formHeadingCell.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_text">Text</label>
+            <input type="text" class="form-control" name="text" id="field_text"
+                    ng-model="vm.formHeadingCell.text"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_useLineNumber">Use Line Number</label>
+            <input type="checkbox" class="form-control" name="useLineNumber" id="field_useLineNumber"
+                    ng-model="vm.formHeadingCell.useLineNumber"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_useItemCode">Use Item Code</label>
+            <input type="checkbox" class="form-control" name="useItemCode" id="field_useItemCode"
+                    ng-model="vm.formHeadingCell.useItemCode"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_useItemDescription">Use Item Description</label>
+            <input type="checkbox" class="form-control" name="useItemDescription" id="field_useItemDescription"
+                    ng-model="vm.formHeadingCell.useItemDescription"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_useUnit">Use Unit</label>
+            <input type="checkbox" class="form-control" name="useUnit" id="field_useUnit"
+                    ng-model="vm.formHeadingCell.useUnit"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_useYearCode">Use Year Code</label>
+            <input type="checkbox" class="form-control" name="useYearCode" id="field_useYearCode"
+                    ng-model="vm.formHeadingCell.useYearCode"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_useConfidenceGrades">Use Confidence Grades</label>
+            <input type="checkbox" class="form-control" name="useConfidenceGrades" id="field_useConfidenceGrades"
+                    ng-model="vm.formHeadingCell.useConfidenceGrades"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_row">Row</label>
+            <input type="text" class="form-control" name="row" id="field_row"
+                    ng-model="vm.formHeadingCell.row"
+                    required />
+            <div ng-show="editForm.row.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.row.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_formHeadingColumn">Form Heading Column</label>
+            <input type="text" class="form-control" name="formHeadingColumn" id="field_formHeadingColumn"
+                    ng-model="vm.formHeadingCell.formHeadingColumn"
+                    required />
+            <div ng-show="editForm.formHeadingColumn.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.formHeadingColumn.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_rowSpan">Row Span</label>
+            <input type="text" class="form-control" name="rowSpan" id="field_rowSpan"
+                    ng-model="vm.formHeadingCell.rowSpan"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_formHeadingColumnSpan">Form Heading Column Span</label>
+            <input type="text" class="form-control" name="formHeadingColumnSpan" id="field_formHeadingColumnSpan"
+                    ng-model="vm.formHeadingCell.formHeadingColumnSpan"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_itemCode">Item Code</label>
+            <input type="text" class="form-control" name="itemCode" id="field_itemCode"
+                    ng-model="vm.formHeadingCell.itemCode"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_yearCode">Year Code</label>
+            <input type="text" class="form-control" name="yearCode" id="field_yearCode"
+                    ng-model="vm.formHeadingCell.yearCode"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_width">Width</label>
+            <input type="text" class="form-control" name="width" id="field_width"
+                    ng-model="vm.formHeadingCell.width"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_cellCode">Cell Code</label>
+            <input type="text" class="form-control" name="cellCode" id="field_cellCode"
+                    ng-model="vm.formHeadingCell.cellCode"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_groupDescriptionCode">Group Description Code</label>
+            <input type="text" class="form-control" name="groupDescriptionCode" id="field_groupDescriptionCode"
+                    ng-model="vm.formHeadingCell.groupDescriptionCode"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label for="field_formTop">Form Top</label>
+            <select class="form-control" id="field_formTop" name="formTop" ng-model="vm.formHeadingCell.formTop" ng-options="form as form.id for form in vm.forms track by form.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="field_formLeft">Form Left</label>
+            <select class="form-control" id="field_formLeft" name="formLeft" ng-model="vm.formHeadingCell.formLeft" ng-options="form as form.id for form in vm.forms track by form.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

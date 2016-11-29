@@ -15,11 +15,13 @@ buildscript {
         classpath "com.moowork.gradle:gradle-node-plugin:0.13"
         classpath "com.moowork.gradle:gradle-gulp-plugin:0.13"
         classpath "io.spring.gradle:dependency-management-plugin:0.6.1.RELEASE"
+        classpath "gradle.plugin.com.ewerk.gradle.plugins:jaxb2-plugin:1.0.2"
         //jhipster-needle-gradle-buildscript-dependency - JHipster will add additional gradle build script plugins here
     }
 }
 
 apply plugin: 'java'
+apply plugin: 'groovy'
 sourceCompatibility=1.8
 targetCompatibility=1.8
 apply plugin: 'maven'
@@ -29,14 +31,24 @@ apply plugin: 'propdeps'
 apply plugin: 'io.spring.dependency-management'
 /* downgrade Hibernate to 4.3 */
 ext['hibernate.version'] = '${hibernate_entitymanager_version}'
+
+apply plugin: 'com.ewerk.gradle.plugins.jaxb2'
+
 defaultTasks 'bootRun'
+
+sourceSets {
+    main {
+        java { srcDirs = [] }    // no source dirs for the java compiler
+        groovy { srcDirs = ["src/main/java", "src/main/groovy"] }  // compile   everything in src/ with groovy
+    }
+}
 
 bootRepackage {
    mainClass = 'uk.gov.ofwat.fountain.modelbuilder.ModelBuilderApp'
 }
 
 war {
-
+    rootSpec.exclude("**/tomcat-*.jar")
 }
 
 springBoot {
@@ -134,7 +146,7 @@ dependencies {
     compile ("com.ryantenney.metrics:metrics-spring:${metrics_spring_version}") {
         exclude(module: 'metrics-core')
         exclude(module: 'metrics-healthchecks')
-    } 
+    }
     compile "org.hibernate:hibernate-core:${hibernate_entitymanager_version}"
     compile("com.zaxxer:HikariCP") {
         exclude(module: 'tools')
@@ -144,7 +156,7 @@ dependencies {
     compile "javax.inject:javax.inject:${javax_inject_version}"
     compile "javax.transaction:javax.transaction-api"
     compile "org.apache.geronimo.javamail:geronimo-javamail_1.4_mail:${geronimo_javamail_1_4_mail_version}"
-    
+
     compile ("org.hibernate:hibernate-ehcache") {
         exclude(module: 'ehcache-core')
     }
@@ -159,7 +171,9 @@ dependencies {
     compile "org.springframework.boot:spring-boot-loader-tools"
     compile "org.springframework.boot:spring-boot-starter-logging"
     compile "org.springframework.boot:spring-boot-starter-aop"
+
     compile "org.springframework.boot:spring-boot-starter-data-jpa"
+
     compile "org.springframework.boot:spring-boot-starter-data-elasticsearch"
     // needed to get around elasticsearch stacktrace about jna not found
     // https://github.com/elastic/elasticsearch/issues/13245
@@ -174,9 +188,18 @@ dependencies {
     compile ("org.springframework:spring-context-support") {
         exclude(module: 'quartz')
     }
+    
+    //ModelExporter Deps
+    compile group: 'org.springframework', name: 'spring-oxm', version: '3.0.0.RELEASE'
+    compile group: 'org.apache.tomcat', name: 'tomcat-util', version: '8.0.0-RC1'
+    compile group: 'org.springframework.security.kerberos', name: 'spring-security-kerberos-client', version: '1.0.1.RELEASE'
+    compile group: 'org.springframework.security.kerberos', name: 'spring-security-kerberos-core', version: '1.0.1.RELEASE'
+    compile group: 'org.springframework.security.kerberos', name: 'spring-security-kerberos-web', version: '1.0.1.RELEASE'
+    
     compile "org.springframework.security:spring-security-config:${spring_security_version}"
     compile "org.springframework.security:spring-security-data:${spring_security_version}"
     compile "org.springframework.security:spring-security-web:${spring_security_version}"
+    compile "org.springframework.security:spring-security-ldap:${spring_security_version}"
     compile("io.springfox:springfox-swagger2:${springfox_version}"){
         exclude module: 'mapstruct'
     }
@@ -196,10 +219,29 @@ dependencies {
     testCompile "com.mattbertolini:liquibase-slf4j:${liquibase_slf4j_version}"
     testCompile "org.hamcrest:hamcrest-library"
     testCompile "io.gatling.highcharts:gatling-charts-highcharts:${gatling_version}"
-    
+
     optional "org.springframework.boot:spring-boot-configuration-processor:${spring_boot_version}"
     //jhipster-needle-gradle-dependency - JHipster will add additional dependencies here
+
+    /** Added dependencies **/
+    //compile 'org.springframework.ldap:spring-ldap-core:2.0.4.RELEASE'
+    compile 'org.springframework.data:spring-data-commons:1.12.5.RELEASE'
+    compile 'commons-pool:commons-pool:1.6'
+    compile 'org.codehaus.groovy:groovy-xml:2.4.4'
+
+    // default JAXB2 libs added by the plugin
+    jaxb2 'org.jvnet.jaxb2_commons:jaxb2-basics-runtime:0.9.5'
+    jaxb2 'org.jvnet.jaxb2_commons:jaxb2-basics-ant:0.9.5'
+    jaxb2 'org.jvnet.jaxb2_commons:jaxb2-basics:0.9.5'
+
+    // default JAXB libs added by the plugin
+    jaxb2 'com.sun.xml.bind:jaxb-core:2.2.11'
+    jaxb2 'com.sun.xml.bind:jaxb-xjc:2.2.11'
+    jaxb2 'com.sun.xml.bind:jaxb-impl:2.2.11'
 }
+
+compileJava.dependsOn(processResources)
+compileGroovy.dependsOn(processResources)
 
 clean {
     delete "target"
@@ -214,6 +256,16 @@ task wrapper(type: Wrapper) {
 }
 
 task stage(dependsOn: 'bootRepackage') {
+}
+
+jaxb2 {
+    xjc {
+        'request-classes' {
+			generatedSourcesDir = 'src/main/java/uk/gov/ofwat/fountain/modelbuilder/model/generated'
+            basePackage = 'uk.gov.ofwat.fountain.modelbuilder.model.generated'
+            schema = 'C:/workspace/Fountain/schemas/newModel.xsd'
+        }
+    }
 }
 
 compileJava.dependsOn processResources

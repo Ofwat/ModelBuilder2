@@ -1,0 +1,104 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myLineDetailsLabel">Create or edit a Line Details</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.lineDetails.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.lineDetails.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_heading">Heading</label>
+            <input type="checkbox" class="form-control" name="heading" id="field_heading"
+                    ng-model="vm.lineDetails.heading"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_code">Code</label>
+            <input type="text" class="form-control" name="code" id="field_code"
+                    ng-model="vm.lineDetails.code"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                    ng-model="vm.lineDetails.description"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_equation">Equation</label>
+            <input type="text" class="form-control" name="equation" id="field_equation"
+                    ng-model="vm.lineDetails.equation"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_lineNumber">Line Number</label>
+            <input type="text" class="form-control" name="lineNumber" id="field_lineNumber"
+                    ng-model="vm.lineDetails.lineNumber"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_ruleText">Rule Text</label>
+            <input type="text" class="form-control" name="ruleText" id="field_ruleText"
+                    ng-model="vm.lineDetails.ruleText"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_type">Type</label>
+            <input type="text" class="form-control" name="type" id="field_type"
+                    ng-model="vm.lineDetails.type"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_companyType">Company Type</label>
+            <input type="text" class="form-control" name="companyType" id="field_companyType"
+                    ng-model="vm.lineDetails.companyType"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_useConfidenceGrade">Use Confidence Grade</label>
+            <input type="checkbox" class="form-control" name="useConfidenceGrade" id="field_useConfidenceGrade"
+                    ng-model="vm.lineDetails.useConfidenceGrade"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_validationRuleCode">Validation Rule Code</label>
+            <input type="text" class="form-control" name="validationRuleCode" id="field_validationRuleCode"
+                    ng-model="vm.lineDetails.validationRuleCode"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_textCode">Text Code</label>
+            <input type="text" class="form-control" name="textCode" id="field_textCode"
+                    ng-model="vm.lineDetails.textCode"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_unit">Unit</label>
+            <input type="text" class="form-control" name="unit" id="field_unit"
+                    ng-model="vm.lineDetails.unit"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_decimalPlaces">Decimal Places</label>
+            <input type="number" class="form-control" name="decimalPlaces" id="field_decimalPlaces"
+                    ng-model="vm.lineDetails.decimalPlaces"
+                     />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

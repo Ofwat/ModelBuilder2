@@ -1,0 +1,43 @@
+
+<div>
+    <h2><span>Cell</span> {{vm.cell.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Code</span></dt>
+        <dd>
+            <span>{{vm.cell.code}}</span>
+        </dd>
+        <dt><span>Year</span></dt>
+        <dd>
+            <span>{{vm.cell.year}}</span>
+        </dd>
+        <dt><span>Equation</span></dt>
+        <dd>
+            <span>{{vm.cell.equation}}</span>
+        </dd>
+        <dt><span>Type</span></dt>
+        <dd>
+            <span>{{vm.cell.type}}</span>
+        </dd>
+        <dt><span>Cg Type</span></dt>
+        <dd>
+            <span>{{vm.cell.cgType}}</span>
+        </dd>
+        <dt><span>Line</span></dt>
+        <dd>
+            <a ui-sref="line-detail({id:vm.cell.line.id})">{{vm.cell.line.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="cell-detail.edit({id:vm.cell.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

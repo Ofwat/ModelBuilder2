@@ -80,3 +80,19 @@ jhipster:
     ribbon:
         # comma seperated list of profiles to show a ribbon on the GUI
         displayOnActiveProfiles: dev
+# ===================================================================
+# Model Builder properties
+# ===================================================================
+
+modelBuilder:
+    modelFileNameFactory:
+        path: Please set this
+        ext: mdl.xml
+    fountainRestService:
+        url: Please set this
+        user: Please set this
+        password: Please set this
+
+multipart:
+    maxFileSize: -1
+    maxRequestSize: -1
